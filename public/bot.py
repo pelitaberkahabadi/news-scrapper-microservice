@@ -1,12 +1,20 @@
 from telethon import TelegramClient, events
 import requests
+import os
 
-api_id = '24832631'
-api_hash = '1af77a64d205b9b0aee49ad5741e8bc9'
-phone = '6282116140638'
-bot_token = '7444694398:AAEFUBI4QW-ulZ7orq1rcOU2iOnfr7tLwrk'  # Add your bot token here
+# Load credentials from environment variables
+api_id = os.getenv('TELEGRAM_API_ID')
+api_hash = os.getenv('TELEGRAM_API_HASH')
+phone = os.getenv('TELEGRAM_PHONE')
+bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 
-client = TelegramClient('session_name', api_id, api_hash)
+# Validate that all required environment variables are set
+if not all([api_id, api_hash, phone, bot_token]):
+    raise ValueError("Missing required environment variables. Please check your .env file.")
+
+# Use session file in /app/sessions directory for Docker volume mounting
+session_path = os.getenv('SESSION_PATH', '/app/sessions/session_name')
+client = TelegramClient(session_path, api_id, api_hash)
 
 async def get_file_url(file_id):
     url = f"https://api.telegram.org/bot{bot_token}/getFile"

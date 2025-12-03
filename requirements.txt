@@ -1,0 +1,8 @@
+# Telegram Client Library
+telethon==1.36.0
+
+# HTTP Requests
+requests==2.31.0
+
+# Cryptography (required by telethon)
+cryptg==0.4.0

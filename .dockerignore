@@ -1,0 +1,61 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
+
+# Session files (will be mounted as volumes)
+*.session
+*.session-journal
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Apache/Passenger (not needed in container)
+.htaccess
+passenger_wsgi.py
+
+# Root bot.py (we use public/bot.py)
+bot.py
+
+# Other
+session_name.session
